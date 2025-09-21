@@ -3,8 +3,10 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const pathName = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -17,16 +19,44 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-6">
-          <Link href="/" className="hover:text-yellow-600 hover:underline font-semibold duration-300 text-sm">
+          <Link
+            href="/"
+            className={`${
+              pathName === "/"
+                ? "text-yellow-600 underline font-semibold text-sm"
+                : "hover:text-yellow-600 hover:underline font-semibold duration-300 text-sm"
+            }`}
+          >
             Home
           </Link>
-          <Link href="/about" className="hover:text-yellow-600 hover:underline font-semibold duration-300 text-sm">
+          <Link
+            href="/about"
+           className={`${
+              pathName === "/about"
+                ? "text-yellow-600 underline font-semibold text-sm"
+                : "hover:text-yellow-600 hover:underline font-semibold duration-300 text-sm"
+            }`}
+          >
             About
           </Link>
-          <Link href="/projects" className="hover:text-yellow-600 hover:underline font-semibold duration-300 text-sm">
+          <Link
+            href="/projects"
+            className={`${
+              pathName === "/projects"
+                ? "text-yellow-600 underline font-semibold text-sm"
+                : "hover:text-yellow-600 hover:underline font-semibold duration-300 text-sm"
+            }`}
+          >
             Projects
           </Link>
-          <Link href="/contact" className="hover:text-yellow-600 hover:underline font-semibold duration-300 text-sm">
+          <Link
+            href="/contact"
+            className={`${
+              pathName === "/contact"
+                ? "text-yellow-600 underline font-semibold text-sm"
+                : "hover:text-yellow-600 hover:underline font-semibold duration-300 text-sm"
+            }`}
+          >
             Contact
           </Link>
         </div>
@@ -44,16 +74,48 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden px-4 pb-4 flex flex-col gap-3 bg-blue-700">
-          <Link href="/" className="hover:text-gray-200" onClick={() => setIsOpen(false)}>
+          <Link
+            href="/"
+            className={`${
+              pathName === "/"
+                ? "text-yellow-600 underline font-semibold text-sm"
+                : "hover:text-yellow-600 hover:underline font-semibold duration-300 text-sm"
+            }`}
+            onClick={() => setIsOpen(false)}
+          >
             Home
           </Link>
-          <Link href="/about" className="hover:text-gray-200" onClick={() => setIsOpen(false)}>
+          <Link
+            href="/about"
+            className={`${
+              pathName === "/about"
+                ? "text-yellow-600 underline font-semibold text-sm"
+                : "hover:text-yellow-600 hover:underline font-semibold duration-300 text-sm"
+            }`}
+            onClick={() => setIsOpen(false)}
+          >
             About
           </Link>
-          <Link href="/projects" className="hover:text-gray-200" onClick={() => setIsOpen(false)}>
+          <Link
+            href="/projects"
+            className={`${
+              pathName === "/projects"
+                ? "text-yellow-600 underline font-semibold text-sm"
+                : "hover:text-yellow-600 hover:underline font-semibold duration-300 text-sm"
+            }`}
+            onClick={() => setIsOpen(false)}
+          >
             Projects
           </Link>
-          <Link href="/contact" className="hover:text-gray-200" onClick={() => setIsOpen(false)}>
+          <Link
+            href="/contact"
+            className={`${
+              pathName === "/contact"
+                ? "text-yellow-600 underline font-semibold text-sm"
+                : "hover:text-yellow-600 hover:underline font-semibold duration-300 text-sm"
+            }`}
+            onClick={() => setIsOpen(false)}
+          >
             Contact
           </Link>
         </div>
